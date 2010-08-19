@@ -1,0 +1,5 @@
+couchdb-projector
+---
+A tiny CouchApp for showing presentations.  Kind of useless without the accompanying data, but that's coming soon, along with proper docs.
+
+Right now it's using Mustache and a List function to get the job done.  'Nuff said.
