@@ -4,15 +4,20 @@ function (head, req) {
 
     provides('html', function () {
         var presentation = {
-            slides: []
+            slides: [],
+            template: templates.default
         };
         while (slide = getRow()) {
             presentation.slides.push(slide.value);
         }
 
-        presentation.title = presentation.slides[0].presentation_title;
-        presentation.colophon = presentation.slides[0].colophon;
+        var first_slide = presentation.slides[0];
+        presentation.title = first_slide.presentation_title;
+        presentation.colophon = first_slide.colophon;
 
-        send(Mustache.to_html(templates.default, presentation));
+        presentation.template = first_slide.template || presentation.template;
+        template = templates[presentation.template] || templates.default;
+
+        send(Mustache.to_html(template, presentation));
     });
 }
