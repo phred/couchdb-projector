@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>CouchDB Projector &mdash; All Presentations</title>
+    <link rel="stylesheet" href="stylesheets/screen.css" type="text/css" media="screen" charset="utf-8" />
+</head>
+
+<body class="js">
+    <div id="header">
+      <div class="container">
+        <h1>CouchDB Projector &mdash; Listing of presentations in this database</h1>
+      </div>
+    </div>
+    <div id="content">
+    <div id="slides">
+        <div class="slide">
+            <div id="presentations">
+            </div>
+        </div>
+    </div>
+    <script src="vendor/couchapp/loader.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    var _app = null;
+        $.couch.app(function (app) {
+            _app = app;
+            app.view('presentations', {'group_level': 1, 'success': function (result) {
+                console.debug(result)
+                for (var ndx in result.rows) {
+                    var first_slide = result.rows[ndx].value;
+                    first_slide.presentation_url = encodeURI('_list/present/presentations?reduce=false&start_key=["' + first_slide.presentation + '"]&end_key=["' + first_slide.presentation + '","Z"]');
+                    $('#presentations').append($.mustache(app.ddoc.templates.presentation_summary, first_slide));
+                }
+            }});
+        });
+    </script>
+</body>
+</html>

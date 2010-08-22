@@ -24,7 +24,7 @@ blockquote, q {	quotes: "" ""; }
 
 /* @group =base */
 body {
-  background: #1a1f1e url(../images/structure/bg-body.png);
+  background: black url(../images/structure/bg-body.png) repeat-x;
   color: #e3dfba;
 	font: 24px/36px Helvetica, Arial, Sans-Serif;
 }
@@ -96,4 +96,37 @@ body {
   .nav-prev-next li { margin-left: 10px; }
 	/* @end */
 
+	/* @group -presentations */
+    .presentation {
+        width: 100%;
+    }
+    .presentation h2 {
+        font-size: 100%;
+        line-height: 100%;
+    }
+    .presentation a {
+        text-decoration: none;
+        color: inherit;
+    }
+    .presentation .author {
+        font-size: 60%;
+        line-height: 100%;
+        color: #999;
+    }
+    .presentation .slide {
+        position: relative;
+        margin: 10px 0px;
+        background: #333;
+        opacity: 0.5;
+        -moz-opacity: 0.5;
+        filter:alpha(opacity=50);
+    }
+    .presentation .slide .num_slides {
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        padding: 0px 8px;
+        font-size: 60%;
+    }
+	/* @end */
 /* @end */
