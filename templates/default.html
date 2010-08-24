@@ -4,6 +4,9 @@
     <title>{{title}}</title>
     <script type="text/javascript">(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script> 
     <link href="../../stylesheets/screen.css" type="text/css" rel="stylesheet" media="Screen,projection" />
+    {{#style}}
+        <link href="../../stylesheets/{{style}}.css" type="text/css" rel="stylesheet" media="Screen,projection"/>
+    {{/style}}
   </head>
   <body>
     <div id="header">
@@ -16,7 +19,7 @@
       <div id="slides">
         {{#slides}}
         <div class="slide slide_{{slide_num}}">
-            {{markup}}
+            {{content}}
         </div>
         {{/slides}}
       </div>

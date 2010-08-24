@@ -26,12 +26,13 @@
     var _app = null;
         $.couch.app(function (app) {
             _app = app;
-            app.view('presentations', {'group_level': 1, 'success': function (result) {
-                console.debug(result)
+            app.view('presentations', {'success': function (result) {
                 for (var ndx in result.rows) {
-                    var first_slide = result.rows[ndx].value;
-                    first_slide.presentation_url = encodeURI('_list/present/presentations?reduce=false&start_key=["' + first_slide.presentation + '"]&end_key=["' + first_slide.presentation + '","Z"]');
-                    $('#presentations').append($.mustache(app.ddoc.templates.presentation_summary, first_slide));
+                    var presentation = result.rows[ndx].value;
+                    presentation.num_slides = presentation.slides.length;
+                    presentation.first_slide = presentation.slides[0].content;
+                    presentation.presentation_url = encodeURI('_list/present/presentations?start_key=["' + presentation._id + '"]&end_key=["' + presentation._id + '"]');
+                    $('#presentations').append($.mustache(app.ddoc.templates.presentation_summary, presentation));
                 }
             }});
         });

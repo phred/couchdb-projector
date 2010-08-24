@@ -1,0 +1,11 @@
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:light,regular,bold);
+.slide {
+  font-family: 'Yanone Kaffeesatz', arial, serif;
+  font-weight: bold;
+  font-size: 144px;
+  line-height: 144px;
+  text-align: center;
+  margin: 33% 0px;
+  left: 0px;
+  right: 0px;
+}

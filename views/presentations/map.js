@@ -1,5 +1,5 @@
 function(doc) {
-  if (doc.is_slide) {
-     emit([doc.presentation, doc.slide_num], doc);
+  if (doc.is_presentation) {
+     emit(doc._id, doc);
   }
 }
