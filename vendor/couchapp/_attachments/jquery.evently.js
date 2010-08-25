@@ -332,7 +332,7 @@ function $$(node) {
     };
     app.db.info({success: function(db_info) {  
       var c_xhr = jQuery.ajaxSettings.xhr();
-      c_xhr.open("GET", app.db.uri+"_changes?feed=continuous&since="+db_info.update_seq, true);
+      c_xhr.open("GET", app.db.uri+"_changes?feed=continuous&since="+db_info.update_seq, true); // TODO: implement CouchDB's "filter" parameter
       c_xhr.send("");
       // todo use a timeout to prevent rapid triggers
       var t;
