@@ -50,7 +50,7 @@
         var _app = null;
         $.couch.app(function (app) {
             $("#remote").evently("remotecontrol", app);
-            $('#slides').presentation();
+            $('#slides').presentation({{optionsAsJSON}});
         });
     </script>
   </body>
