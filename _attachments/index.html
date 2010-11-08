@@ -31,7 +31,7 @@
                     var presentation = result.rows[ndx].value;
                     presentation.num_slides = presentation.slides.length;
                     presentation.first_slide = presentation.slides[0].content;
-                    presentation.presentation_url = encodeURI('_list/present/presentations?start_key=["' + presentation._id + '"]&end_key=["' + presentation._id + '"]');
+                    presentation.presentation_url = encodeURI('_list/present/presentations?startkey="' + presentation._id + '"&endkey="' + presentation._id + '"');
                     $('#presentations').append($.mustache(app.ddoc.templates.presentation_summary, presentation));
                 }
             }});
